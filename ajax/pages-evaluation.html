@@ -51,18 +51,25 @@
                             </div>
 
 
-                            <div class="col-12">
-                                <h4>Contesnat Name</h4>
+
+                            <div class="col-6 my-1">
+                                <input class="form-control" type="text" placeholder="Contestant Number" id="cNumber" disabled>
                             </div>
 
                             <div class="col-6 my-1">
-                                <input class="form-control" type="text" placeholder="Category" disabled>
+                                <input class="form-control" type="text" placeholder="Contesnat Name" id="cName" disabled>
+                            </div>
+
+
+
+                            <div class="col-6 my-1">
+                                <input class="form-control" type="text" placeholder="Category" id="cCat" disabled>
                             </div>
                             <div class="col-6 my-1">
-                                <input class="form-control" type="text" placeholder="Contestant Type" disabled>
+                                <input class="form-control" type="text" placeholder="Contestant Type" id="cType" disabled>
                             </div>
                             <div class="col-12 my-3">
-                                <textarea required class="form-control" rows="5" style="resize: none;"
+                                <textarea required class="form-control" rows="5" id="cBio" style="resize: none;"
                                     disabled>BIO</textarea>
                             </div>
                             <div class="col-12" style="text-align-last: start;">
@@ -303,7 +310,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="qrModalLabel">QR Code Scanner</h5>
+                <h5 class="modal-title" id="qrModalLabel">Get Contestant Details</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -329,38 +336,3 @@
 
 <!-- Remix icon js-->
 <script src="assets/js/pages/remix-icons-list.js"></script>
-
-
-<script>
-    let scannedResult = "";
-
-    document.getElementById('qrModal').addEventListener('shown.bs.modal', () => {
-        const qrReader = new Html5Qrcode("qr-reader");
-
-        qrReader.start(
-            { facingMode: "environment" }, // Use back camera
-            {
-                fps: 10, // Scanning frames per second
-                qrbox: { width: 250, height: 250 }, // QR code scanning box
-            },
-            (decodedText, decodedResult) => {
-                // Handle the decoded text
-                console.log("Decoded text: ", decodedText);
-                scannedResult = decodedText; // Store in a variable
-                alert(`Scanned Result: ${decodedText}`);
-                qrReader.stop(); // Stop scanning after getting a result
-            },
-            (error) => {
-                console.warn(`QR Error: ${error}`);
-            }
-        ).catch((err) => {
-            console.error("Failed to start QR scanner:", err);
-        });
-
-        // Stop the scanner when modal is hidden
-        document.getElementById('qrModal').addEventListener('hidden.bs.modal', () => {
-            qrReader.stop();
-            qrReader.clear();
-        });
-    });
-</script>
