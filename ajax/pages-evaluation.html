@@ -45,7 +45,7 @@
                                 </div>
                                 <!-- Second row: Large image -->
                                 <div class="col-12 large-image-container">
-                                    <img class="rounded large-image" alt="Large Image"
+                                    <img class="rounded large-image" alt="Large Image" id="parImage"
                                         src="assets/images/small/img-4.jpg" data-holder-rendered="true">
                                 </div>
                             </div>
@@ -53,11 +53,13 @@
 
 
                             <div class="col-6 my-1">
-                                <input class="form-control" type="text" placeholder="Contestant Number" id="cNumber" disabled>
+                                <input class="form-control" type="text" placeholder="Contestant Number" id="cNumber"
+                                    disabled>
                             </div>
 
                             <div class="col-6 my-1">
-                                <input class="form-control" type="text" placeholder="Contesnat Name" id="cName" disabled>
+                                <input class="form-control" type="text" placeholder="Contesnat Name" id="cName"
+                                    disabled>
                             </div>
 
 
@@ -66,7 +68,8 @@
                                 <input class="form-control" type="text" placeholder="Category" id="cCat" disabled>
                             </div>
                             <div class="col-6 my-1">
-                                <input class="form-control" type="text" placeholder="Contestant Type" id="cType" disabled>
+                                <input class="form-control" type="text" placeholder="Contestant Type" id="cType"
+                                    disabled>
                             </div>
                             <div class="col-12 my-3">
                                 <textarea required class="form-control" rows="5" id="cBio" style="resize: none;"
@@ -315,6 +318,18 @@
             </div>
             <div class="modal-body">
                 <div id="qr-reader"></div>
+
+                <div class="row">
+                    <div class="col-6 my-1">
+                        <label for="lookpNumber">Manual Lookup</label>
+                        <input class="form-control" type="text" placeholder="Enter Contestant Number" id="lookpNumber">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 my-1">
+                        <button onclick="lookupManual()" class="btn btn-primary">Lookup</button>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
