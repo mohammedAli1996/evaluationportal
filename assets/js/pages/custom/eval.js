@@ -78,18 +78,20 @@ imageUploader.addEventListener('change', (event) => {
 
 const participants = [
     {
-        number: 331,
+        number: "331",
         name: "Participant One",
         category: "Category A",
         type: "Type X",
-        bio: "This is a placeholder bio for Participant One."
+        bio: "This is a placeholder bio for Participant One.",
+        img:"assets/images/custom/teamOneLogo.png"
     },
     {
-        number: 465,
+        number: "465",
         name: "Participant Two",
         category: "Category B",
         type: "Type Y",
-        bio: "This is a placeholder bio for Participant Two."
+        bio: "This is a placeholder bio for Participant Two.",
+        img:"assets/images/custom/teamTwoLogo.png"
     }
 ];
 
@@ -128,25 +130,31 @@ document.getElementById('qrModal').addEventListener('shown.bs.modal', () => {
 
 function findParticipantByNumber(number) {
     var participant = participants.find(participant => participant.number === number);
-    document.getElementById("cNumber").value = participant.number ; 
+    document.getElementById("cNumber").value = participant.number;
     document.getElementById("cName").value = participant.name;
     document.getElementById("cCat").value = participant.category;
     document.getElementById("cType").value = participant.type;
     document.getElementById("cBio").value = participant.bio;
+    document.getElementById("parImage").src = participant.img;
+}
+
+function lookupManual(){
+    findParticipantByNumber(document.getElementById("lookpNumber").value);
+    hideModalById("qrModal");
 }
 
 
 function hideModalById(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
-      // Hide the modal using Bootstrap's modal API
-      const modalInstance = bootstrap.Modal.getInstance(modal); // Get the modal instance
-      if (modalInstance) {
-        modalInstance.hide();
-      } else {
-        console.error("Modal instance not found. Ensure the modal was initialized.");
-      }
+        // Hide the modal using Bootstrap's modal API
+        const modalInstance = bootstrap.Modal.getInstance(modal); // Get the modal instance
+        if (modalInstance) {
+            modalInstance.hide();
+        } else {
+            console.error("Modal instance not found. Ensure the modal was initialized.");
+        }
     } else {
-      console.error("Modal not found. Check the provided ID.");
+        console.error("Modal not found. Check the provided ID.");
     }
-  }
+}
