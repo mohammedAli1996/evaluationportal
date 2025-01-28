@@ -74,8 +74,8 @@ function call_ajax_page(page) {
 $(document).ready(function() {
 	 var path = window.location.hash.substr(1);
 	if (path == "index.html") {
-		call_ajax_page("index.html");
+		call_ajax_page("pages-evaluation.html");
 	} else {
-		call_ajax_page("index.html");
+		call_ajax_page("pages-evaluation.html");
 	}
 });
